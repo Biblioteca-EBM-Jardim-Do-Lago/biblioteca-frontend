@@ -1,9 +1,13 @@
-import type { HttpProviderInstance } from '@/providers'
 import type { GetBooks, GetBooksParams } from '../..'
+import { HTTPMethods, type IHTTPClient } from '@/infra/http/contract'
 
-export default (provider: HttpProviderInstance) => ({
+export default (client: IHTTPClient) => ({
   getAll: async (params?: GetBooksParams) => {
-    const response = await provider.get<Array<GetBooks>>(`/books`, { params })
-    return response.data
+    const response = await client.sendRequest<Array<GetBooks>>({
+      method: HTTPMethods.GET,
+      endpoint: '/books',
+      params
+    })
+    return response
   }
 })

@@ -6,6 +6,6 @@
 hr {
     width: 100%;
     height: 1px;
-    background-color: var(--bs-gray-100);
+    border: 1px solid var(--color-gray-300);
 }
 </style>

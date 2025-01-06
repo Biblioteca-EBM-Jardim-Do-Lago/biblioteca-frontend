@@ -1,5 +1,5 @@
 <template>
-    <h3 class="fs-2 fw-bold text-purple-800">
+    <h3 class="fs-2 fw-bold">
         <slot></slot>
     </h3>
 </template>
