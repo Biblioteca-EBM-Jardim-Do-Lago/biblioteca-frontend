@@ -1,5 +1,8 @@
 <template>
-	<BookSearchInput v-model="booksSearchStore.search"/>
+    <div class="d-flex gap-3">
+        <BookSearchInput v-model="booksSearchStore.search"/>
+        <BooksFilter />
+    </div>
 	<span v-if="booksSearchStore.isLoading">Carregando...</span>
 	<span v-else-if="booksSearchStore.isError">Ocorreu um erro</span>
     <div class="table-container" v-else>
@@ -26,16 +29,18 @@
 </template>
 
 <script setup lang="ts">
+import { watchEffect } from 'vue';
+
 import { useBooksSearchStore } from '@/store';
 
 import BookStatusTag from './books-status-tag.vue';
-import { watchEffect } from 'vue';
+import BooksFilter from './books-filter.vue';
 import BookSearchInput from './book-search-input.vue';
 
 const booksSearchStore = useBooksSearchStore()
 
 watchEffect(() => {
-    booksSearchStore.getBooks(booksSearchStore.search)
+    booksSearchStore.getBooks({name: booksSearchStore.search, status: booksSearchStore.booksStatus})
 })
 
 </script>

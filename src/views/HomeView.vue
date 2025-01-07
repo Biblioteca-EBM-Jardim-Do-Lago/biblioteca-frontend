@@ -1,4 +1,5 @@
 <template>
+  <NewBookModal />
   <PageLayout>
     <PageTitle>
       Bem Vindo (a) Novamente
@@ -45,9 +46,9 @@
             </CardDescription>
           </CardContent>
           <CardFooter>
-            <CardButton>
+            <button data-bs-target="#new-book-modal" data-bs-toggle="modal">
               Novo livro
-            </CardButton>
+            </button>
             <CardButton>
               Importar livros
             </CardButton>
@@ -58,7 +59,7 @@
   </PageLayout>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import CardButton from '@/common/components/card/card-button.vue';
 import CardContent from '@/common/components/card/card-content.vue';
 import CardDescription from '@/common/components/card/card-description.vue';
@@ -72,4 +73,5 @@ import PageSectionLayout from '@/common/components/page-section-layout.vue';
 import PageSectionTitle from '@/common/components/page-section-title.vue';
 import PageTitle from '@/common/components/page-title.vue';
 import BooksTable from '@/modules/books/features/list/components/books-table.vue';
+import NewBookModal from '@/modules/books/features/list/components/new-book-modal.vue';
 </script>

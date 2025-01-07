@@ -4,11 +4,13 @@
     </button>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import type { ButtonHTMLAttributes } from 'vue';
 import { defineProps } from 'vue';
 
-defineProps<ButtonHTMLAttributes>()
+interface CardButtonProps extends /* @vue-ignore */ ButtonHTMLAttributes {}
+
+defineProps<CardButtonProps>()
 </script>
 
 <style scoped>
