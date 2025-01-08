@@ -1,4 +1,6 @@
 :root {
+    --color-white: #fff;
+
     --color-gray-100: #F8F9FA;
     --color-gray-200: #E9ECEF;
     --color-gray-300: #DEE2E6;
@@ -13,6 +15,7 @@
     --color-red-800: #58151C;
 
     --color-purple-800: #2C1A4D;
+    --color-purple-100: #EBE5FC;
 }
 
 #app {

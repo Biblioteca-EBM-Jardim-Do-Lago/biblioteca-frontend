@@ -1,1 +1,1 @@
-export { useBooksSearchStore } from './book-search-store'
+export { useBookListStore } from './book-list-store'

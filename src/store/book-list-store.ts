@@ -2,13 +2,14 @@ import { type GetBooks, type GetBooksParams, type GetBookStatus } from '@/module
 import Service from '@/modules/books/services/http'
 import { defineStore } from 'pinia'
 
-export const useBooksSearchStore = defineStore('books-search-store', {
+export const useBookListStore = defineStore('books-search-store', {
   state: () => ({
     search: '',
     books: [] as Array<GetBooks>,
     isError: false,
     isLoading: false,
-    booksStatus: '' as GetBookStatus
+    booksStatus: '' as GetBookStatus,
+    selectedBook: {} as GetBooks
   }),
   actions: {
     async getBooks(params: Partial<GetBooksParams>) {
@@ -19,6 +20,10 @@ export const useBooksSearchStore = defineStore('books-search-store', {
     },
     setStatus(status: GetBookStatus | '') {
       this.booksStatus = status as GetBookStatus
+    },
+    setSelectedBook(book: GetBooks) {
+      console.log(book)
+      this.selectedBook = book
     }
   }
 })

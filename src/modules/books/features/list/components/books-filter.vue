@@ -9,17 +9,17 @@
 
 <script setup lang="ts">
 import type { GetBookStatus } from '@/modules/books/services';
-import { useBooksSearchStore } from '@/store';
+import { useBookListStore } from '@/store';
 
-const booksSearchStore = useBooksSearchStore()
+const bookListStore = useBookListStore()
 
 const checkButtonStyle = (status:  GetBookStatus | '') => {
-    if(booksSearchStore.booksStatus === status) return 'btn btn-primary'
+    if(bookListStore.booksStatus === status) return 'btn btn-primary'
 
     return 'btn btn-light'
 }
 
 const handleFilter = (status: GetBookStatus | '') => {
-    booksSearchStore.setStatus(status)
+    bookListStore.setStatus(status)
 }
 </script>
