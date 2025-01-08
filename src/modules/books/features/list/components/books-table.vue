@@ -9,17 +9,12 @@
         <table>
             <thead>
                 <tr>
-                    <th scope="col" class="row-with-checkbox"><input class="form-check-input" type="checkbox" value=""> Nº</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Situação</th>
+                    <th scope="col" class="w-100">Nome</th>
+                    <th scope="col" class="w-100">Situação</th>
                 </tr>
             </thead>
             <tbody v-for="book in booksSearchStore.books" :key="book._id"> 
                 <tr>
-                    <td scope="row" class="row-with-checkbox">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <span class="code-text">{{ book.code }}</span>
-                    </td>
                     <td>{{ book.name }}</td>
                     <td><BookStatusTag :status="book.status"/></td>
                 </tr>
@@ -53,23 +48,15 @@ table {
             border-radius: 0.5rem;
 }
 
-tr {
-    width: 100%;
-}
-
 td {
     background-color: transparent;
-    width: 100%;
-
     padding: 0.75rem 1rem;
 }
 
 th {
     background-color: var(--color-gray-200);
     padding: 1rem;
-    
     font-size: 1rem;
-    width: 100%;
 }
 
 tbody:nth-child(odd) {
@@ -82,16 +69,5 @@ tbody:nth-child(odd) {
 .table-container {
     border: 1px solid var(--color-gray-300);
     border-radius: 0.5rem;
-}
-
-.row-with-checkbox {
-    display: flex;
-    gap: 1rem;
-    width: 100%;
-}
-
-.code-text {
-    width: max-content;
-    font-weight: bold;
 }
 </style>
