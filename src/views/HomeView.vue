@@ -12,7 +12,7 @@
       
       <BooksTable />
     </PageSectionLayout>
-    <DividerLine />
+    <!-- <DividerLine />
     <PageSectionLayout>
       <PageSectionTitle>
         Cadastros
@@ -55,18 +55,18 @@
           </CardFooter>
         </CardLayout>
       </CardGroup>
-    </PageSectionLayout>
+    </PageSectionLayout> -->
   </PageLayout>
 </template>
 
 <script setup lang="ts">
-import CardButton from '@/common/components/card/card-button.vue';
-import CardContent from '@/common/components/card/card-content.vue';
-import CardDescription from '@/common/components/card/card-description.vue';
-import CardFooter from '@/common/components/card/card-footer.vue';
-import CardGroup from '@/common/components/card/card-group.vue';
-import CardLayout from '@/common/components/card/card-layout.vue';
-import CardTitle from '@/common/components/card/card-title.vue';
+// import CardButton from '@/common/components/card/card-button.vue';
+// import CardContent from '@/common/components/card/card-content.vue';
+// import CardDescription from '@/common/components/card/card-description.vue';
+// import CardFooter from '@/common/components/card/card-footer.vue';
+// import CardGroup from '@/common/components/card/card-group.vue';
+// import CardLayout from '@/common/components/card/card-layout.vue';
+// import CardTitle from '@/common/components/card/card-title.vue';
 import DividerLine from '@/common/components/divider-line.vue';
 import PageLayout from '@/common/components/page-layout.vue';
 import PageSectionLayout from '@/common/components/page-section-layout.vue';
