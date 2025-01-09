@@ -12,7 +12,7 @@
                     <th scope="col" class="w-100">Nome</th>
                 </tr>
             </thead>
-            <tbody v-for="book in bookListStore.books" :key="book._id">
+            <tbody v-for="book in bookListStore.books" :key="book.id">
                 <div class="dropdown w-100">
                     <tr class="100%" role="button" @click="bookListStore.setSelectedBook(book)" id="actionMenu" data-bs-toggle="dropdown" aria-expanded="false">
                         <td>{{ book.name }}</td>
@@ -20,8 +20,8 @@
                     </tr>
                     <ul class="dropdown-menu" aria-labelledby="actionMenu">
                         <li><h6 class="dropdown-header">Ações</h6></li>
-                        <li><button class="dropdown-item" type="button">Emprestar</button></li>
-                        <li><button class="dropdown-item" type="button">Devolver</button></li>
+                        <li v-if="bookListStore.selectedBook.status === 'AVAILABLE'"><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#checkoutBookModal">Emprestar</button></li>
+                        <li v-if="bookListStore.selectedBook.status === 'CHECKEDOUT' || bookListStore.selectedBook.status === 'DELAYED'"><button class="dropdown-item" type="button">Devolver</button></li>
                     </ul>
                 </div>
             </tbody>

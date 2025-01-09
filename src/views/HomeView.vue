@@ -1,5 +1,5 @@
 <template>
-  <NewBookModal />
+  <CheckoutModal />
   <PageLayout>
     <PageTitle>
       Bem Vindo (a) Novamente
@@ -73,5 +73,5 @@ import PageSectionLayout from '@/common/components/page-section-layout.vue';
 import PageSectionTitle from '@/common/components/page-section-title.vue';
 import PageTitle from '@/common/components/page-title.vue';
 import BooksTable from '@/modules/books/features/list/components/books-table.vue';
-import NewBookModal from '@/modules/books/features/list/components/new-book-modal.vue';
+import CheckoutModal from '@/modules/checkout/features/checkout/components/checkout-modal.vue';
 </script>

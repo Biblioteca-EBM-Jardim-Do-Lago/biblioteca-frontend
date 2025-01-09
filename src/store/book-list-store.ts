@@ -12,7 +12,7 @@ export const useBookListStore = defineStore('books-search-store', {
     selectedBook: {} as GetBooks
   }),
   actions: {
-    async getBooks(params: Partial<GetBooksParams>) {
+    async getBooks(params?: Partial<GetBooksParams>) {
       this.isLoading = true
       const response = await Service.books.getAll(params)
       this.books = response
@@ -22,7 +22,6 @@ export const useBookListStore = defineStore('books-search-store', {
       this.booksStatus = status as GetBookStatus
     },
     setSelectedBook(book: GetBooks) {
-      console.log(book)
       this.selectedBook = book
     }
   }

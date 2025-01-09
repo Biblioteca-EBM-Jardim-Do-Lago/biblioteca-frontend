@@ -1,5 +1,5 @@
 export type DBData<T> = T & {
-  _id: string
+  id: string
   createdAt: string
   updatedAt: string
   __v: number

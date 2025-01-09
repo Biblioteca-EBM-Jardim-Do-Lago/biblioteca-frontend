@@ -5,9 +5,3 @@
 <script lang="ts" setup>
 const model = defineModel()
 </script>
-
-<style scoped>
-input::placeholder {
-    color: #ADB5BD;
-}
-</style>

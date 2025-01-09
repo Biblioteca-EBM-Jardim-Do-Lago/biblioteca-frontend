@@ -4,6 +4,7 @@
     --color-gray-100: #F8F9FA;
     --color-gray-200: #E9ECEF;
     --color-gray-300: #DEE2E6;
+    --color-gray-600: #6C757D;
 
     --color-green-100: #D1E7DD;
     --color-green-800: #0A3622;
@@ -28,4 +29,8 @@ h4 {
 
 h3 {
     color: var(--color-purple-800);
+}
+
+input::placeholder {
+    color: #ADB5BD;
 }
