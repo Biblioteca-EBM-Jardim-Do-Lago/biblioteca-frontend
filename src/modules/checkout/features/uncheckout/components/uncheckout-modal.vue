@@ -1,22 +1,22 @@
 <template>
-    <div class="modal fade" id="checkoutBookModal" tabindex="-1" aria-labelledby="checkoutBookModalLabel" aria-hidden="true" data-bs-autohide="false" ref="modal">
+    <div class="modal fade" id="uncheckoutBookModal" tabindex="-1" aria-labelledby="uncheckoutBookModalLabel" aria-hidden="true" data-bs-autohide="false" ref="modal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
                 <div class="d-flex gap-3 align-items-center">
-                    <h6 class="modal-title" id="checkoutBookModalLabel">Emprestar "{{ bookListStore.selectedBook.name }}"?</h6>
+                    <h6 class="modal-title" id="uncheckoutBookModalLabel">Devolver "{{ bookListStore.selectedBook.name }}"?</h6>
                     <p class="code-label">#{{ bookListStore.selectedBook.code }}</p>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <StudentsRadioList />
+                Tem certeza que deseja devolver?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" @click="handleCheckout" :disabled="!studentListStore.selectedStudentId">
+                <button type="button" class="btn btn-danger" @click="handleUncheckout">
                     <span v-if="checkoutBookStore.isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    Emprestar
+                    Devolver
                 </button>
             </div>
             </div>
@@ -25,7 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import StudentsRadioList from '@/modules/students/features/radio-list/components/students-radio-list.vue';
 import { Modal } from 'bootstrap'
 
 import { useBookListStore, useCheckoutBookStore, useStudentsListStore } from '@/store';
@@ -35,17 +34,14 @@ const bookListStore = useBookListStore()
 const studentListStore = useStudentsListStore()
 const checkoutBookStore = useCheckoutBookStore()
 
-const checkoutModal = ref({} as Modal)
+const uncheckoutModal = ref({} as Modal)
 
 onMounted(() => {
-    checkoutModal.value = new Modal(document.getElementById('checkoutBookModal') as HTMLDivElement)
+    uncheckoutModal.value = new Modal(document.getElementById('uncheckoutBookModal') as HTMLDivElement)
 })
 
-const handleCheckout = () => {
-    if(!studentListStore.selectedStudentId) return
-    
-    checkoutBookStore.checkout(
-        studentListStore.selectedStudentId,
+const handleUncheckout = () => {
+    checkoutBookStore.uncheckout(
         bookListStore.selectedBook.id
     )
 }
@@ -54,7 +50,7 @@ watch(() => checkoutBookStore.isSuccess, () => {
     if(!checkoutBookStore.isSuccess) return
     
     bookListStore.getBooks()
-    checkoutModal.value.hide()
+    uncheckoutModal.value.hide()
 })
 
 </script>

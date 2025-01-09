@@ -12,5 +12,15 @@ export default (client: IHTTPClient) => ({
       }
     })
     return response
+  },
+  uncheckout: async (bookId: string) => {
+    const response = await client.sendRequest<GetStudents>({
+      method: HTTPMethods.DELETE,
+      endpoint: '/checkout',
+      params: {
+        bookId
+      }
+    })
+    return response
   }
 })

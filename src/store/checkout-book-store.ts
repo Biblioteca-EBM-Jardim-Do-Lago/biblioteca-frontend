@@ -21,6 +21,20 @@ export const useCheckoutBookStore = defineStore('checkout-book-store', {
       } finally {
         this.isLoading = false
       }
+    },
+    async uncheckout(bookId: string) {
+      this.isError = false
+      this.isSuccess = false
+      try {
+        this.isLoading = true
+        const response = await Service.checkout.uncheckout(bookId)
+        if (response) this.isSuccess = true
+      } catch (e) {
+        this.isError = true
+        this.isSuccess = false
+      } finally {
+        this.isLoading = false
+      }
     }
   }
 })
