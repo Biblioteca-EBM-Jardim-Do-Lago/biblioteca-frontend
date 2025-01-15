@@ -21,7 +21,7 @@
                     <ul class="dropdown-menu" aria-labelledby="actionMenu">
                         <li><h6 class="dropdown-header">Ações</h6></li>
                         <li v-if="bookListStore.selectedBook.status === 'AVAILABLE'"><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#checkoutBookModal">Emprestar</button></li>
-                        <!-- <li v-if="bookListStore.selectedBook.status === 'CHECKEDOUT' || bookListStore.selectedBook.status === 'DELAYED'"><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#uncheckoutBookModal">Devolver</button></li> -->
+                        <li v-if="bookListStore.selectedBook.status === 'CHECKEDOUT' || bookListStore.selectedBook.status === 'DELAYED'"><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#uncheckoutBookModal">Devolver</button></li>
                     </ul>
                 </div>
             </tbody>

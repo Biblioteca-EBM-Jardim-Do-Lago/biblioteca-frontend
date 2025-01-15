@@ -22,12 +22,12 @@ export const useCheckoutBookStore = defineStore('checkout-book-store', {
         this.isLoading = false
       }
     },
-    async uncheckout(bookId: string) {
+    async uncheckout(bookId: string, studentId: string) {
       this.isError = false
       this.isSuccess = false
       try {
         this.isLoading = true
-        const response = await Service.checkout.uncheckout(bookId)
+        const response = await Service.checkout.uncheckout(bookId, studentId)
         if (response) this.isSuccess = true
       } catch (e) {
         this.isError = true

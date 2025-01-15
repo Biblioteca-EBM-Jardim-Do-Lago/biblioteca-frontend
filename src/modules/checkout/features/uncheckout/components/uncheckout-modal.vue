@@ -10,7 +10,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Tem certeza que deseja devolver?
+                <p>
+                    Este livro está emprestado por <strong>"{{ bookListStore.selectedBook.checkedOutBy?.name }}"</strong> do <strong>CPF: {{ bookListStore.selectedBook.checkedOutBy?.cpf }}</strong>, deseja realizar a devolução?
+                </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -27,11 +29,10 @@
 <script setup lang="ts">
 import { Modal } from 'bootstrap'
 
-import { useBookListStore, useCheckoutBookStore, useStudentsListStore } from '@/store';
+import { useBookListStore, useCheckoutBookStore } from '@/store';
 import { onMounted, ref, watch } from 'vue';
 
 const bookListStore = useBookListStore()
-const studentListStore = useStudentsListStore()
 const checkoutBookStore = useCheckoutBookStore()
 
 const uncheckoutModal = ref({} as Modal)
@@ -41,8 +42,11 @@ onMounted(() => {
 })
 
 const handleUncheckout = () => {
+    if(!bookListStore.selectedBook.checkedOutBy) return
+
     checkoutBookStore.uncheckout(
-        bookListStore.selectedBook.id
+        bookListStore.selectedBook.id,
+        bookListStore.selectedBook.checkedOutBy.id
     )
 }
 
